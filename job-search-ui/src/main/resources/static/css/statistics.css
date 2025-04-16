@@ -1,0 +1,13 @@
+.chart-container {
+    display: flex;
+    justify-content: center;
+
+    align-items: center; /* Выравнивание по вертикали */
+    margin: auto; /* Центрирование по горизонтали */
+    width: 600px;
+    height: 300px
+}
+canvas {
+    max-width: 600px;
+    max-height: 400px;
+}

@@ -1,5 +1,6 @@
 package com.example.jobsearch.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -21,6 +22,7 @@ import java.util.List;
 public class Employer extends User{
     String organisation;
     String description;
+    @JsonIgnore
     @OneToMany(mappedBy = "employer")
     List<Vacancy> vacancies;
 

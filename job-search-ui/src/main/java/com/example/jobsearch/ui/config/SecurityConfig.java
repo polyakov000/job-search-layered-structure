@@ -23,6 +23,7 @@ public class SecurityConfig {
                         .requestMatchers("/vacancy/find","/resume/**").hasRole("CANDIDATE") // Доступ только для кандидатов
                         // Пути, доступные только для работодателей
                         .requestMatchers("/vacancy/create").hasRole("EMPLOYER") // Доступ только для работодателей
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // Доступ только для админа
                         // Все остальные запросы требуют аутентификации
                         .anyRequest().authenticated()
                 )

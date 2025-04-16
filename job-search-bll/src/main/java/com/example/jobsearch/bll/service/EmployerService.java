@@ -2,9 +2,12 @@ package com.example.jobsearch.bll.service;
 
 
 import com.example.jobsearch.dal.entity.Employer;
+import com.example.jobsearch.dal.entity.Vacancy;
 import com.example.jobsearch.dal.repository.EmployerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EmployerService {
@@ -21,5 +24,8 @@ public class EmployerService {
     }
     public Employer findByUsername(String username){
         return employerRepo.findByUsername(username);
+    }
+    public List<Employer> findAll(){
+        return employerRepo.findAll();
     }
 }

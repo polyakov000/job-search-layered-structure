@@ -1,5 +1,6 @@
 package com.example.jobsearch.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Vacancy {
     @ManyToOne
     @JoinColumn(name = "employer_id")
     Employer employer;
+    @JsonIgnore
     @OneToMany(mappedBy = "vacancy")
     List<Application> applications;
 
