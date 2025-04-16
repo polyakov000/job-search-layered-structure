@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль работодателя</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/employer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+
+<!---------------------------ШАПКА---------------------------->
+<div th:replace="common/navbar :: navbar(user=${user}, vacancy = null)"></div>
+<!------------------------------------------------------------>
+<div class="container">
+    <h1>
+        <i class="fas fa-building icon"></i>
+        <span th:text="${employer.organisation}">Организация</span>
+    </h1>
+    <p>
+        <i class="fas fa-info-circle icon"></i>
+        <span th:text="${employer.description}">Описание</span>
+    </p>
+    <h2>
+        <i class="fas fa-briefcase icon"></i>
+        Вакансии
+    </h2>
+    <div class="vacancy-container">
+        <div class="vacancy-card" th:each="vacancy : ${employer.vacancies}">
+            <h3 th:text="${vacancy.position}">Позиция</h3>
+            <p class="salary" th:text="${vacancy.salary} + ' руб.'">Зарплата</p>
+            <p class="description" th:text="${vacancy.description}">Описание</p>
+            <button class="apply-button" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}">Откликнуться</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

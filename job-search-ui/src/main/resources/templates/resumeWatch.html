@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои Резюме</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/resumeWatch.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+
+</head>
+<!---------------------------ШАПКА---------------------------->
+<div th:replace="common/navbar :: navbar(user=${user},vacancy=null)"></div>
+<!------------------------------------------------------------>
+<div class="container">
+    <h1>
+        <i class="fas fa-file-alt icon"></i>
+        Мои Резюме
+    </h1>
+    <div th:each="resume : ${resumes}">
+        <div class="card mb-3" th:id="'resume-' + ${resume.ID}">
+            <!-- Иконки удаления и редактирования -->
+            <div class="action-icons">
+                <!-- Иконка редактирования -->
+                <a href="#" th:onclick="'editResume(event, ' + ${resume.ID} + ')'" title="Редактировать">
+                    <i class="fas fa-pencil-alt"></i> <!-- Иконка карандаша -->
+                </a>
+                <!-- Иконка удаления -->
+                <a th:href="@{'/resume/delete/' + ${resume.ID}}" title="Удалить" onclick="return confirm('Вы уверены, что хотите удалить это резюме?');">
+                    <i class="fas fa-trash"></i> <!-- Иконка корзины -->
+                </a>
+            </div>
+            <div class="card-body">
+                <!-- Статическое отображение резюме -->
+                <div class="static-view">
+                    <h5 class="card-title" th:text="${resume.position}">Позиция</h5>
+                    <p class="card-text" th:text="${resume.description}">Описание</p>
+                    <p class="card-text"><strong>Опыт работы:</strong> <span th:text="${resume.workExperience} + ' лет'"></span></p>
+                    <p class="card-text"><strong>Файл резюме:</strong> <a th:href="@{'/resume/download/' + ${resume.ID}}" th:text="${resume.fileName}"></a></p>
+                </div>
+                <!-- Редактируемые поля -->
+                <div class="editable">
+                    <input type="text" class="form-control mb-2" th:id="'position-' + ${resume.ID}" th:value="${resume.position}" placeholder="Позиция">
+                    <textarea class="form-control mb-2" th:id="'description-' + ${resume.ID}" placeholder="Описание" th:text="${resume.description}"></textarea>
+                    <input type="number" class="form-control mb-2" th:id="'workExperience-' + ${resume.ID}" th:value="${resume.workExperience}" placeholder="Опыт работы (лет)" step="0.1">
+                    <input type="file" class="form-control mb-2" th:id="'file-' + ${resume.ID}" placeholder="Выберите файл">
+                    <button class="btn btn-success" th:onclick="'saveResume(event, ' + ${resume.ID} + ')'">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/user/profile" class="btn btn-primary mt-3">
+        <i class="fas fa-arrow-left icon"></i>
+        Назад
+    </a>
+</div>
+
+<script src="/script/resumeWatch.js"></script>
+</body>
+</html>

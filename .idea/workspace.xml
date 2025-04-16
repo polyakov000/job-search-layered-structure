@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="254cd3af-be3c-4205-8a35-60d758c7b8d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/EmployerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ResumeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/VacancyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-bll/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Candidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Employer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Resume.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Roles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Vacancy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/ApplicationRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/EmployerRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/ResumeRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/UserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/VacancyRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/JobSearchApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/SecurityUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/UserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ApplicationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/EmployerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ResumeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/VacancyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/createVacancy.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/employer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/navbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/resume.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/resumeWatch.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/signin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/signup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/vacancy.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/resumeWatch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/vacancies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/common/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/createVacancy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/employer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/notifications.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/resume.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/resumeWatch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/signin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/vacancies.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2voUpntiOknDifZ8CMCGcGk1y3U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Универ/гит/job-search-layered-structure/job-search-ui/src/main/resources/templates",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\resources\templates" />
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\java\com\example\jobsearch\ui\controller" />
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-dal\src\main\java\com\example\jobsearch\dal\repository" />
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-bll\src\main\java\com\example\jobsearch\bll\service" />
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\resources\templates\common" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.jobsearch.ui.JobSearchApplication" />
+      <module name="job-search-ui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="254cd3af-be3c-4205-8a35-60d758c7b8d6" name="Changes" comment="" />
+      <created>1744379064583</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744379064583</updated>
+    </task>
+    <servers />
+  </component>
+</project>

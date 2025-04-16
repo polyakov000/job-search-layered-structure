@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вакансии</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/vacancy.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+<!---------------------------ШАПКА---------------------------->
+<div th:replace="common/navbar :: navbar(user=${user}, vacancy=${vacancy})"></div>
+<!------------------------------------------------------------>
+<div class="container">
+    <h1>
+        <i class="fas fa-briefcase icon"></i>
+        Вакансии
+    </h1>
+    <div class="vacancy-container">
+        <!-- Карточка вакансии -->
+        <div class="vacancy-card" th:each="vacancy : ${vacancies}">
+
+            <h3 th:text="${vacancy.position}">Позиция</h3>
+            <p class="salary" th:text="${vacancy.salary} + ' руб.'">Зарплата</p>
+            <p class="description" th:text="${vacancy.description}">Описание</p>
+            <p class="employer">
+                <a th:href="@{'/employer/' + ${vacancy.employer.ID}}" th:text="${vacancy.employer.organisation}">Работодатель</a>
+            </p>
+            <button class="apply-button"
+                    th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}"
+                    th:data-vacancy-id="${vacancy.ID}"
+                    th:data-vacancy-position="${vacancy.position}"
+                    th:data-employer-organisation="${vacancy.employer.organisation}"
+                    onclick="openApplicationModal(this)">
+                Откликнуться
+            </button>
+        </div>
+    </div>
+</div>
+<div class="back-button-container">
+    <a href="/user/profile" class="btn btn-primary">
+        <i class="fas fa-arrow-left icon"></i>
+        Назад
+    </a>
+</div>
+
+<!-- Модальное окно для отклика -->
+<div id="applicationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeApplicationModal()">&times;</span>
+        <h2>Отклик на вакансию</h2>
+        <div id="employerInfo">
+            <p id="employerName"></p> <!-- Имя работодателя -->
+            <p>Вакансия: <span id="vacancyTitle"></span></p> <!-- Название вакансии -->
+        </div>
+        <div id="chat"></div>
+        <div class="resume-list">
+            <h3>Ваши резюме:</h3>
+            <div id="resumes"></div>
+        </div>
+        <div class="message-input">
+            <input type="text" id="message" placeholder="Введите сообщение...">
+            <button onclick="sendApplication()">Отправить</button>
+        </div>
+    </div>
+</div>
+<!-- Скрытое поле для хранения ID вакансии -->
+<input type="hidden" id="vacancyId">
+<script  src="/script/vacancies.js"></script>
+
+</body>
+</html>

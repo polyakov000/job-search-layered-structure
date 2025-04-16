@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Профиль</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+
+<!---------------------------ШАПКА---------------------------->
+<div th:replace="common/navbar :: navbar(user=${user},vacancy = null)"></div>
+<!------------------------------------------------------------>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Мой профиль</h1>
+        <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}">
+            <a th:href="@{/resume/watch}">
+                <button class="btn btn-success">
+                    <i class="fas fa-folder-open icon"></i>
+                    Мои резюме
+                </button>
+            </a>
+        </div>
+        <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}">
+            <a th:href="@{'/employer/' + ${employer.ID}}">
+                <button class="btn btn-success">
+                    <i class="fas fa-folder-open icon"></i>
+                    Мои вакансии
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p>Имя пользователя: <span th:text="${user.username}"></span></p>
+            <p>Email: <span th:text="${user.email}"></span></p>
+
+            <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}">
+                <p>Организация: <span th:text="${employer.organisation}"></span></p>
+                <p>Описание: <span th:text="${employer.description}"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}">
+        <a th:href="@{/resume/create}">
+            <button class="btn btn-success mt-3">
+                <i class="fas fa-file-alt icon"></i>
+                Добавить резюме
+            </button>
+        </a>
+    </div>
+
+    <div>
+        <a th:href="@{/vacancy/find}">
+            <button class="btn btn-success mt-3">
+                <i class="fas fa-search icon"></i>
+                Просмотреть вакансии
+            </button>
+        </a>
+    </div>
+
+    <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}">
+        <a th:href="@{/vacancy/create}">
+            <button class="btn btn-success mt-3">
+                <i class="fas fa-briefcase icon"></i>
+                Добавить вакансию
+            </button>
+        </a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
