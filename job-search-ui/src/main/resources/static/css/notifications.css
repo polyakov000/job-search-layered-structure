@@ -1,0 +1,136 @@
+/* notifications.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 20px;
+    padding: 0;
+    max-width: 100%;
+}
+
+.notifications {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 80px); /* Вычитаем высоту шапки */
+    gap: 0; /* Убираем отступ между блоками */
+}
+
+/* Левый блок - список откликов */
+.applications-list {
+    width: 360px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.application-block {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative; /* Для позиционирования даты */
+}
+
+.application-block:hover {
+    background-color: #f0f5ff; /* Голубоватый ховер как на rabota.by */
+}
+
+.application-block h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.application-block p {
+    font-size: 14px;
+    color: #555;
+    margin: 3px 0;
+}
+
+/* Дата в правом верхнем углу */
+.application-block p:last-child {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
+    color: #666;
+}
+
+/* Правый блок - диалог */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-window {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 500px; /* Ограничение максимальной ширины */
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.candidate-message {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+    margin-right: 15px; /* Отступ от правого края */
+}
+
+.employer-message {
+    background-color: #e9ecef;
+    color: black;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+    margin-left: 15px; /* Отступ от левого края */
+}
+
+.message-input {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    max-width: 100%;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: calc(500px - 15px); /* Соответствует ширине сообщений */
+}
+
+.message-input button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-input button:hover {
+    background-color: #0069d9;
+}

@@ -18,16 +18,11 @@
                         Просмотреть вакансии
                     </a>
                 </li>
-                <li class="nav-item dropdown" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownResume" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-folder-open icon"></i>
+                <li class="nav-item" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}">
+                    <a class="nav-link" th:href="@{/resume/watch}">
+                        <i class="fas fa-briefcase icon"></i>
                         Мои резюме
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownResume">
-                        <a class="dropdown-item" th:each="resume : ${resumes}"
-                           th:href="@{/resume/watch(id=${resume.ID})}"
-                           th:text="${resume.position}"></a>
-                    </div>
                 </li>
                 <li class="nav-item" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}">
                     <a class="nav-link" th:href="@{/vacancy/create}">
@@ -35,8 +30,8 @@
                         Добавить вакансию
                     </a>
                 </li>
-                <li class="nav-item" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).ADMIN}">
-                    <a class="nav-link" th:href="@{/admin/statistics}">
+                <li class="nav-item" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).ANALYST}">
+                    <a class="nav-link" th:href="@{/analyst/statistics}">
                         <i class="fas fa-briefcase icon"></i>
                         Посмотреть статистику
                     </a>
@@ -54,7 +49,7 @@
                 </li>
                 <!-- Иконка уведомлений -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/user/notifications}" title="Уведомления">
+                    <a class="nav-link" th:href="@{/notifications}" title="Уведомления">
                         <i class="fas fa-bell icon"></i>
                     </a>
                 </li>

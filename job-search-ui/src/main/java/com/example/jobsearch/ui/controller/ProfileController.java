@@ -46,20 +46,5 @@ public class ProfileController {
 
         return "profile";
     }
-    @Transactional
-    @GetMapping("/notifications")
-    public String notications(Model model)
-    {
-        User currentUser = userService.findByUsername(SecurityUtils.getCurrentUsername());
 
-        if (currentUser instanceof Candidate) {
-            List<Resume> resumes = resumeService.findAllByCandidate((Candidate) currentUser);
-            model.addAttribute("resumes", resumes);
-        } else {
-            model.addAttribute("resumes", Collections.emptyList()); // Или обработка для Employer
-        }
-
-        model.addAttribute("user",userService.findByUsername(SecurityUtils.getCurrentUsername()));
-        return "notifications";
-    }
 }

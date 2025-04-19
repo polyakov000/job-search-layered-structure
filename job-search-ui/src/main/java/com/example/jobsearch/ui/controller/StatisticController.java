@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/analyst")
 public class StatisticController {
     @Autowired
     UserService userService;

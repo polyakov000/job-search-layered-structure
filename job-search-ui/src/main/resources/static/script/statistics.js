@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("/admin/statistics/result")
+    fetch("/analyst/statistics/result")
         .then(response => response.json())
         .then(data => {
             const ctx = document.getElementById("statisticsChart").getContext("2d");
@@ -47,7 +47,24 @@ document.addEventListener("DOMContentLoaded", function () {
                                 }
                             }
                         }
+                    },
+                    animation: {
+                        onComplete: function () {
+                            const ctx = this.ctx; // Исправлено! Теперь ctx определен
+                            ctx.font = "16px Arial";
+                            ctx.fillStyle = "black";
+                            ctx.textAlign = "center";
+
+                            this.data.datasets.forEach((dataset, i) => {
+                                const meta = this.getDatasetMeta(i);
+                                meta.data.forEach((bar, index) => {
+                                    const value = dataset.data[index];
+                                    ctx.fillText(value, bar.x, bar.y - 10); // Размещение текста над столбцом
+                                });
+                            });
+                        }
                     }
+
                 }
             });
         })

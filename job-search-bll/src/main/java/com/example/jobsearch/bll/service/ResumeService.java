@@ -16,8 +16,8 @@ public class ResumeService {
     public void save(Resume resume){
         resumeRepo.save(resume);
     }
-    public Optional<Resume> findById(Long id){
-        return resumeRepo.findById(id);
+    public Resume findById(Long id){
+        return resumeRepo.findById(id).orElse(null);
     }
     public List<Resume> findAllByCandidate(Candidate candidate){
         return resumeRepo.findAllByCandidate(candidate);

@@ -15,7 +15,6 @@
     fetch('/application/resume/my')
         .then(response => response.json())
         .then(data => {
-            console.log("Данные от сервера:", data); // Выводим данные в консоль
             if (!Array.isArray(data)) {
                 console.error("Ожидался массив, но получено:", data);
                 return;
@@ -25,7 +24,7 @@
             data.forEach(resume => {
                 resumesContainer.innerHTML += `
                     <div>
-                        <input type="radio" name="resume" value="${resume.ID}">
+                        <input type="radio" name="resume" value="${resume.id}">
                         <label><b>${resume.position}</b></label>
                         <label>${resume.description}</label>
                     </div>
@@ -50,6 +49,7 @@
     function sendApplication() {
         const vacancyId = document.getElementById('vacancyId').value;
         const message = document.getElementById('message').value;
+        const candidateId = document.getElementById('candidateId').value;
         const selectedResume = document.querySelector('input[name="resume"]:checked');
 
         if (!selectedResume) {
@@ -58,6 +58,7 @@
         }
 
         const resumeId = selectedResume.value;
+
 
         // Отправляем данные на сервер
         fetch('/application/send', {
@@ -68,7 +69,8 @@
             body: JSON.stringify({
                 vacancyId: vacancyId,
                 resumeId: resumeId,
-                message: message
+                message: message,
+                candidateId : candidateId
             }),
         })
         .then(response => {

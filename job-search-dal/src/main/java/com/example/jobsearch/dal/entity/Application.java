@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -16,6 +18,9 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String text;
+    LocalDateTime applicationDate;
+    @Enumerated(EnumType.STRING)
+    ApplicationStatus status;
     @ManyToOne
     @JoinColumn(name = "candidate_id")
     Candidate candidate;

@@ -1,5 +1,6 @@
 package com.example.jobsearch.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class Resume {
     byte[] file;
     @Setter
     String fileName;
+    @JsonIgnore
     @OneToOne(mappedBy = "resume")
     Application application;
     @ManyToOne

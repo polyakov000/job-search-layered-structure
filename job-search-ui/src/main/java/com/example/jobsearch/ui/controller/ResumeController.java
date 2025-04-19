@@ -76,13 +76,9 @@ public class ResumeController {
 
     @GetMapping("/download/{id}")
     public ResponseEntity<byte[]> downloadFile(@PathVariable Long id) {
-        Optional<Resume> optionalResume = resumeService.findById(id);
+        Resume resume = resumeService.findById(id);
 
-        if (!optionalResume.isPresent() || optionalResume.get().getFile() == null) {
-            return ResponseEntity.notFound().build();
-        }
 
-        Resume resume = optionalResume.get();
 
         // Определяем тип содержимого (MIME type) по имени файла
         String mimeType = URLConnection.guessContentTypeFromName(resume.getFileName());
@@ -117,8 +113,7 @@ public class ResumeController {
                              @RequestParam("description") String description,
                              @RequestParam("workExperience") Double workExperience,
                              @RequestParam(value = "file", required = false) MultipartFile file) {
-        Resume existingResume = resumeService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Резюме не найдено"));
+        Resume existingResume = resumeService.findById(id);
 
         // Обновляем существующую сущность
         existingResume.setPosition(position);

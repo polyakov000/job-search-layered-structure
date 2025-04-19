@@ -14,4 +14,8 @@ public class CandidateService {
     public List<Candidate> findAll(){
         return candidateRepo.findAll();
     }
+
+    public Candidate findById(long candidateId) {
+        return candidateRepo.findById(candidateId).orElse(null);
+    }
 }

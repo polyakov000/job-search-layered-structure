@@ -5,27 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="254cd3af-be3c-4205-8a35-60d758c7b8d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/CandidateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/CandidateRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/StatisticController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/statistics.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/statistics.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/statistics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/ApplicationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/NotificationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/notifications.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/EmployerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/EmployerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Candidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Employer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/CandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/CandidateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ResumeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ResumeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/VacancyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/VacancyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Resume.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Resume.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Roles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Vacancy.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Vacancy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/EmployerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/EmployerRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/UserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/VacancyRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/VacancyRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/ApplicationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/ApplicationRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ResumeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ResumeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/statistics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/vacancies.js" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/vacancies.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/common/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/notifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/notifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/statistics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/vacancies.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/vacancies.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +42,7 @@
         <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -82,6 +87,7 @@
       <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\resources\templates\common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\resources\static\images" />
       <recent name="C:\Универ\гит\job-search-layered-structure\job-search-ui\src\main\resources\static" />
     </key>
   </component>

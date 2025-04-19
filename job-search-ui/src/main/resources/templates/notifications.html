@@ -5,10 +5,54 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/notifications.css">
 </head>
 <body>
 <!---------------------------ШАПКА---------------------------->
 <div th:replace="common/navbar :: navbar(user=${user},vacancy = null)"></div>
 <!------------------------------------------------------------>
+<div class="container-fluid px-0">
+    <div class="notifications">
+
+        <!-- Левый блок - список откликов -->
+        <div class="applications-list">
+            <div class="application-block" th:each="app : ${applications}">
+
+                <!-- Название вакансии -->
+                <h4 th:text="${app.vacancy.position}"></h4>
+
+                <!-- Компания работодателя -->
+                <p th:text="${app.vacancy.employer.organisation}"></p>
+
+                <!-- Статус отклика -->
+                <p th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}"
+                   th:text="(${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED} ? 'Вы откликнулись на вакансию' : 'Отказ')"
+                   th:style="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED} ? 'color: green;' : 'color: red;'">
+                </p>
+
+
+                <!-- Дата отклика -->
+                <p class="application-date" th:text="${app.applicationDate.toLocalDate() == #temporals.createNow().toLocalDate()} ?
+                ${#temporals.format(app.applicationDate, 'HH:mm')} : ${#temporals.format(app.applicationDate, 'dd.MM.yyyy')}"></p>
+            </div>
+        </div>
+
+        <!-- Правый блок - диалог -->
+        <div class="chat-container">
+            <div class="chat-window">
+                <div class="message candidate-message">Привет, я заинтересован в вакансии!</div>
+                <div class="message employer-message">Добрый день! Мы рассмотрим вашу заявку.</div>
+            </div>
+
+            <!-- Поле ввода сообщения -->
+            <div class="message-input">
+                <input type="text" placeholder="Введите сообщение...">
+                <button>Отправить</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script  src="/script/notifications.js"></script>
 </body>
 </html>
