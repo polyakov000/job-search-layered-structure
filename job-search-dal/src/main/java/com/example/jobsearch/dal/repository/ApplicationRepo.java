@@ -3,6 +3,7 @@ package com.example.jobsearch.dal.repository;
 
 import com.example.jobsearch.dal.entity.Application;
 import com.example.jobsearch.dal.entity.Candidate;
+import com.example.jobsearch.dal.entity.Vacancy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

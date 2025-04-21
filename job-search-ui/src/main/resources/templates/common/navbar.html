@@ -36,6 +36,12 @@
                         Посмотреть статистику
                     </a>
                 </li>
+                <li class="nav-item" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).ADMIN}">
+                    <a class="nav-link" th:href="@{/admin/users}">
+                        <i class="fas fa-briefcase icon"></i>
+                        Пользователи
+                    </a>
+                </li>
                 <li class="nav-item dropdown" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVacancy" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-list-alt icon"></i>
@@ -49,7 +55,7 @@
                 </li>
                 <!-- Иконка уведомлений -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/notifications}" title="Уведомления">
+                    <a class="nav-link" th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER || user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}" th:href="@{/notifications}" title="Уведомления">
                         <i class="fas fa-bell icon"></i>
                     </a>
                 </li>

@@ -4,6 +4,7 @@ package com.example.jobsearch.bll.service;
 import com.example.jobsearch.dal.entity.Vacancy;
 import com.example.jobsearch.dal.repository.VacancyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,9 @@ public class VacancyService {
 
     public Vacancy findById(long vacancyId) {
         return vacancyRepo.findById(vacancyId).orElse(null);
+    }
+    public List<Vacancy> getTopVacancies() {
+        return vacancyRepo.findTopVacanciesWithApplications(PageRequest.of(0, 5));
     }
 
 }

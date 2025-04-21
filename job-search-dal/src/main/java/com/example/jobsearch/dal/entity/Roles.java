@@ -1,5 +1,5 @@
 package com.example.jobsearch.dal.entity;
 
 public enum Roles {
-    CANDIDATE, EMPLOYER, ADMIN,ANALYST
+    CANDIDATE, EMPLOYER, ANALYST, ADMIN
 }

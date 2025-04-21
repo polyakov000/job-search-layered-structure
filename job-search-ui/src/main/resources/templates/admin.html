@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Админ панель</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<!---------------------------ШАПКА---------------------------->
+<div th:replace="common/navbar :: navbar(user=${user},vacancy = null)"></div>
+<!------------------------------------------------------------>
+
+<div class="container mt-5">
+    <div class="tabs-container">
+        <button class="tab-button active" id="candidates-tab">Кандидаты</button>
+        <button class="tab-button" id="employers-tab">Работодатели</button>
+    </div>
+
+    <div id="candidates-section">
+        <div class="users-container" id="candidates-container">
+            <!-- Здесь будут отображаться кандидаты -->
+            <div class="user-card" th:each="candidate : ${candidates}">
+                <div class="user-info">
+                    <h3 th:text="${candidate.username}">Username</h3>
+                    <p><strong>Email:</strong> <span th:text="${candidate.email}">email@example.com</span></p>
+                    <p><strong>Роль:</strong> <span>CANDIDATE</span></p>
+                    <p><strong>Статус:</strong>
+                        <span class="status-badge"
+                              th:classappend="${candidate.status == T(com.example.jobsearch.dal.entity.UsersStatus).ACTIVE} ? 'status-active' : 'status-blocked'"
+                              th:text="${candidate.status == T(com.example.jobsearch.dal.entity.UsersStatus).ACTIVE} ? 'Активен' : 'Заблокирован'">
+        Статус
+    </span>
+                    </p>
+                </div>
+
+                <div class="user-actions">
+                    <button class="btn btn-unblock"
+                            th:onclick="'unblockUser(' + ${candidate.ID} + ')'"
+                            th:disabled="${candidate.status == 'ACTIVE'}">
+                        <i class="fas fa-lock-open"></i> Разблокировать
+                    </button>
+                    <button class="btn btn-block"
+                            th:onclick="'blockUser(' + ${candidate.ID} + ')'"
+                            th:disabled="${candidate.status == 'BLOCKED'}">
+                        <i class="fas fa-lock"></i> Заблокировать
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="employers-section" style="display: none;">
+        <div class="users-container" id="employers-container">
+            <!-- Здесь будут отображаться работодатели -->
+            <div class="user-card" th:each="employer : ${employers}">
+                <div class="user-info">
+                    <h3 th:text="${employer.username}">Username</h3>
+                    <p><strong>Email:</strong> <span th:text="${employer.email}">email@example.com</span></p>
+                    <p><strong>Роль:</strong> <span>EMPLOYER</span></p>
+                    <p><strong>Статус:</strong>
+                        <span class="status-badge"
+                              th:classappend="${employer.status == T(com.example.jobsearch.dal.entity.UsersStatus).ACTIVE} ? 'status-active' : 'status-blocked'"
+                              th:text="${employer.status == T(com.example.jobsearch.dal.entity.UsersStatus).ACTIVE} ? 'Активен' : 'Заблокирован'">
+        Статус
+    </span>
+                    </p>
+                    <p><strong>Организация:</strong> <span th:text="${employer.organisation}">Организация</span></p>
+                    <p><strong>Описание:</strong> <span th:text="${employer.description}">Описание организации</span></p>
+                </div>
+
+                <div class="user-actions">
+                    <button class="btn btn-unblock"
+                            th:onclick="'unblockUser(' + ${employer.ID} + ')'"
+                            th:disabled="${employer.status == 'ACTIVE'}">
+                        <i class="fas fa-lock-open"></i> Разблокировать
+                    </button>
+                    <button class="btn btn-block"
+                            th:onclick="'blockUser(' + ${employer.ID} + ')'"
+                            th:disabled="${employer.status == 'BLOCKED'}">
+                        <i class="fas fa-lock"></i> Заблокировать
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/script/admin.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -22,6 +23,7 @@ public class User {
     String email;
     @Enumerated(EnumType.STRING)
     Roles role;
-
-
+    @Setter
+    @Enumerated(EnumType.STRING)
+    UsersStatus status = UsersStatus.ACTIVE;
 }

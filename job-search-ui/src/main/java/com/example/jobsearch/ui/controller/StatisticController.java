@@ -33,18 +33,16 @@ public class StatisticController {
     CandidateService candidateService;
     @Autowired
     EmployerService employerService;
+
     @GetMapping("/statistics")
     @Transactional
     public String getStatisticPage(Principal principal, Model model) {
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
-
-
-
         return "statistics";
     }
 
-    @GetMapping("/statistics/result")
+    @GetMapping("/statistics/users-and-vacancies/result")
     @ResponseBody
     public Map<String, Object> getStatistic(Principal principal, Model model){
         List<User> users = userService.findALL();
@@ -58,4 +56,18 @@ public class StatisticController {
         stats.put("vacancies", vacancies);
         return stats;
     }
+    @GetMapping("/statistics/most-popular-vacancies/result")
+    @ResponseBody
+    @Transactional
+    public List<?> getPopularStatistic() {
+        return vacancyService.getTopVacancies().stream()
+                .map(vacancy -> Map.of(
+                        "position", vacancy.getPosition(),
+                        "applicationsCount", vacancy.getApplications().size()
+                ))
+                .toList();
+    }
+
+
+
 }

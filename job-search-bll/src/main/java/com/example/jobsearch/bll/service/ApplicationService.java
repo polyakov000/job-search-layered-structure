@@ -14,7 +14,7 @@ public class ApplicationService {
     @Autowired
     ApplicationRepo applicationRepo;
     public void save(Application application){
-        applicationRepo.save(application);
+            applicationRepo.save(application);
     }
     public List<Application> findByCandidate(Candidate candidate) {
         return applicationRepo.findByCandidate(candidate);

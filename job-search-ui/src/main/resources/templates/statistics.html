@@ -12,10 +12,22 @@
 <!---------------------------ШАПКА---------------------------->
 <div th:replace="common/navbar :: navbar(user=${user}, vacancy = null)"></div>
 <!------------------------------------------------------------>
-<div class="chart-container">
-    <canvas id="statisticsChart"></canvas>
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Статистика платформы</h1>
+    <h3 class="text-center mb-4">На данной диаграмме представлена статистика по основным показателям платформы:
+        общее количество пользователей, работодателей, соискателей и вакансий.</h3>
+
+    <div class="chart-container" style="height: 500px; width: 80%; margin: 0 auto;">
+        <canvas id="statisticsChart"></canvas>
+    </div>
 </div>
 
+<!-- 🔹 Контейнер топ-5 популярных вакансий -->
+<div class="top-vacancies-container">
+    <h2>Топ-5 популярных вакансий</h2>
+    <canvas id="vacancyChart"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/script/statistics.js"></script>

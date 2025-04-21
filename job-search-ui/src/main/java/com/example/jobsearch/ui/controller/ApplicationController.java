@@ -7,6 +7,7 @@ import com.example.jobsearch.dal.entity.Candidate;
 import com.example.jobsearch.dal.entity.Resume;
 import com.example.jobsearch.ui.config.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +50,6 @@ public class ApplicationController {
                 .resume(resumeService.findById(Long.parseLong(requestData.get("resumeId").toString())))
                 .text(requestData.get("message").toString())
                 .build();
-
 
         applicationService.save(application);
     }
