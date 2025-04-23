@@ -1,10 +1,7 @@
 package com.example.jobsearch.dal.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -19,6 +16,7 @@ public class Application {
     Long id;
     String text;
     LocalDateTime applicationDate;
+    @Setter
     @Enumerated(EnumType.STRING)
     ApplicationStatus status;
     @ManyToOne

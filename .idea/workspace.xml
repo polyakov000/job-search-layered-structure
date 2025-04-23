@@ -4,31 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="254cd3af-be3c-4205-8a35-60d758c7b8d6" name="Changes" comment="press f">
-      <change afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/UsersStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/AdminRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/admin.html" afterDir="false" />
+    <list default="true" id="254cd3af-be3c-4205-8a35-60d758c7b8d6" name="Changes" comment="ПАААМААААГИИИИТЕЕЕЕЕ">
+      <change afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/notifications.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/VacancyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-bll/src/main/java/com/example/jobsearch/bll/service/VacancyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Roles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/ApplicationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/entity/ApplicationStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/ApplicationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/ApplicationRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/VacancyRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-dal/src/main/java/com/example/jobsearch/dal/repository/VacancyRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/config/UserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/StatisticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/statistics.css" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/statistics.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/script/statistics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/common/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/statistics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/java/com/example/jobsearch/ui/controller/NotificationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/notifications.css" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/static/css/notifications.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/notifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/job-search-ui/src/main/resources/templates/notifications.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,11 +119,20 @@
       <option name="project" value="LOCAL" />
       <updated>1745078989777</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ПАААМААААГИИИИТЕЕЕЕЕ">
+      <option name="closed" value="true" />
+      <created>1745268376537</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745268376537</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="press f" />
-    <option name="LAST_COMMIT_MESSAGE" value="press f" />
+    <MESSAGE value="ПАААМААААГИИИИТЕЕЕЕЕ" />
+    <option name="LAST_COMMIT_MESSAGE" value="ПАААМААААГИИИИТЕЕЕЕЕ" />
   </component>
 </project>

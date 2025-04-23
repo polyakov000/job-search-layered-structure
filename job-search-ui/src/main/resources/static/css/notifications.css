@@ -134,3 +134,90 @@ body {
 .message-input button:hover {
     background-color: #0069d9;
 }
+/* Добавьте эти стили в ваш notifications.css */
+
+/* Стили для карточки резюме */
+.resume-card {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resume-card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.resume-card .card-text {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.resume-card .card-text strong {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Стили для ссылки на файл */
+.resume-card .card-text a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 5px;
+    transition: background-color 0.2s;
+}
+
+.resume-card .card-text a:hover {
+    background-color: #0069d9;
+    text-decoration: underline;
+}
+
+/* Иконка для ссылки на файл */
+.resume-card .card-text a::before {
+    content: "\f019"; /* Иконка скачивания из Font Awesome */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 5px;
+}
+/* Стили для временной метки сообщения */
+.message-time {
+    font-size: 11px;
+    color: #666;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Стили для статуса "прочитано" */
+.message-read {
+    font-size: 11px;
+    color: #4CAF50;
+    margin-top: 2px;
+    text-align: right;
+}
+
+/* Анимация нового сообщения */
+@keyframes newMessage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message.new-message {
+    animation: newMessage 0.3s ease-out;
+}
+.application-block.selected {
+    background-color: #e0f0ff;
+    border-left: 3px solid #007bff;
+}

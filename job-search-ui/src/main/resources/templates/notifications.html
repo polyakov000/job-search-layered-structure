@@ -8,51 +8,194 @@
     <link rel="stylesheet" href="/css/notifications.css">
 </head>
 <body>
-<!---------------------------ШАПКА---------------------------->
 <div th:replace="common/navbar :: navbar(user=${user},vacancy = null)"></div>
-<!------------------------------------------------------------>
+
 <div class="container-fluid px-0">
     <div class="notifications">
 
-        <!-- Левый блок - список откликов -->
-        <div class="applications-list">
-            <div class="application-block" th:each="app : ${applications}">
-
-                <!-- Название вакансии -->
+        <!-- 🔹 Левый блок - список откликов кандидата -->
+        <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}" class="applications-list">
+            <div class="application-block" th:each="app : ${applications}"
+                 th:attr="data-app-id=${app.id}, data-resume-id=${app.resume != null ? app.resume.ID : ''}">
                 <h4 th:text="${app.vacancy.position}"></h4>
-
-                <!-- Компания работодателя -->
                 <p th:text="${app.vacancy.employer.organisation}"></p>
 
-                <!-- Статус отклика -->
-                <p th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}"
-                   th:text="(${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED} ? 'Вы откликнулись на вакансию' : 'Отказ')"
-                   th:style="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED} ? 'color: green;' : 'color: red;'">
+                <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).INVITED}" style="color: green;">
+                    Вас пригласили на собеседование
+                </p>
+                <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).REJECTED}" style="color: red;">
+                    Вам отказано
+                </p>
+                <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED}" style="color: black;">
+                    Вы откликнулись
                 </p>
 
-
-                <!-- Дата отклика -->
-                <p class="application-date" th:text="${app.applicationDate.toLocalDate() == #temporals.createNow().toLocalDate()} ?
-                ${#temporals.format(app.applicationDate, 'HH:mm')} : ${#temporals.format(app.applicationDate, 'dd.MM.yyyy')}"></p>
+                <p class="application-date" th:text="${app.applicationDate != null ? (#temporals.format(app.applicationDate, 'dd.MM.yyyy HH:mm')) : 'Дата неизвестна'}"></p>
             </div>
         </div>
 
-        <!-- Правый блок - диалог -->
+        <!-- 🔹 Левый блок - список заявок работодателя -->
+        <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}" class="applications-list">
+            <div class="application-block" th:each="app : ${employerApplications}"
+                 th:attr="data-app-id=${app.id}, data-resume-id=${app.resume != null ? app.resume.ID : ''}">
+                <h4 th:text="${app.vacancy.position}"></h4>
+                <p th:text="${app.candidate.username}"></p>
+
+                <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).INVITED}" style="color: green;">
+                    Кандидат приглашён на собеседование
+                </p>
+                <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).REJECTED}" style="color: red;">
+                    Кандидату отказано
+                </p>
+                <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED}" style="color: black;">
+                    Кандидат откликнулся
+                </p>
+
+                <p class="application-date" th:text="${app.applicationDate != null ? (#temporals.format(app.applicationDate, 'dd.MM.yyyy HH:mm')) : 'Дата неизвестна'}"></p>
+            </div>
+        </div>
+
+        <!-- 🔹 Правый блок - диалог -->
         <div class="chat-container">
             <div class="chat-window">
-                <div class="message candidate-message">Привет, я заинтересован в вакансии!</div>
-                <div class="message employer-message">Добрый день! Мы рассмотрим вашу заявку.</div>
+                <!-- Messages for candidate -->
+                <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).CANDIDATE}">
+                    <!-- Сначала сообщение кандидата -->
+                    <div th:each="app : ${applications}" class="message candidate-message"
+                         th:attr="data-app-id=${app.id}" style="display: none;">
+                        <p>Привет, я заинтересован в вакансии!</p>
+                        <div th:if="${app.resume != null}" class="resume-card"
+                             th:attr="data-app-id=${app.id}, data-resume-id=${app.resume.ID}" style="display: none;">
+                            <h5 class="card-title" th:text="${app.resume.position}">Позиция</h5>
+                            <p class="card-text" th:text="${app.resume.description}">Описание</p>
+                            <p class="card-text"><strong>Опыт работы:</strong> <span th:text="${app.resume.workExperience} + ' лет'"></span></p>
+                            <p class="card-text"><strong>Файл резюме:</strong>
+                                <a th:href="@{'/resume/download/' + ${app.resume.ID}}" th:text="${app.resume.fileName}"></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Затем ответ работодателя -->
+                    <div th:each="app : ${applications}" class="message employer-message"
+                         th:attr="data-app-id=${app.id}" style="display: none;">
+                        <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).INVITED}" style="color: green;">
+                            Вас пригласили на собеседование
+                        </p>
+                        <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).REJECTED}" style="color: red;">
+                            Вам отказано
+                        </p>
+                        <p th:if="${app.status == T(com.example.jobsearch.dal.entity.ApplicationStatus).APPLIED}" style="color: black;">
+                            Мы рассмотрим вашу заявку
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Messages for employer -->
+                <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}">
+                    <div th:each="app : ${employerApplications}" class="message candidate-message"
+                         th:attr="data-app-id=${app.id}" style="display: none;">
+                        <p>Кандидат откликнулся на вакансию</p>
+                        <div th:if="${app.resume != null}" class="resume-card"
+                             th:attr="data-app-id=${app.id}, data-resume-id=${app.resume.ID}" style="display: none;">
+                            <h5 class="card-title" th:text="${app.resume.position}">Позиция</h5>
+                            <p class="card-text" th:text="${app.resume.description}">Описание</p>
+                            <p class="card-text"><strong>Опыт работы:</strong> <span th:text="${app.resume.workExperience} + ' лет'"></span></p>
+                            <p class="card-text"><strong>Файл резюме:</strong>
+                                <a th:href="@{'/resume/download/' + ${app.resume.ID}}" th:text="${app.resume.fileName}"></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Поле ввода сообщения -->
-            <div class="message-input">
-                <input type="text" placeholder="Введите сообщение...">
-                <button>Отправить</button>
+            <!-- 🔹 Кнопки для работодателя -->
+            <div th:if="${user.role == T(com.example.jobsearch.dal.entity.Roles).EMPLOYER}" class="message-actions" style="display: none;">
+                <button class="invite-btn" style="background-color: green; color: white;">Пригласить</button>
+                <button class="reject-btn" style="background-color: red; color: white;">Отказать</button>
             </div>
         </div>
-
     </div>
 </div>
-<script  src="/script/notifications.js"></script>
+
+<script src="/script/notifications.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const applications = document.querySelectorAll(".application-block");
+
+        // 🔹 Скрываем все сообщения и резюме при загрузке
+        document.querySelectorAll(".message, .resume-card, .message-actions").forEach(el => {
+            el.style.display = "none";
+        });
+
+        // 🔹 Автоматически выбираем первый отклик
+        if (applications.length > 0) {
+            showApplicationMessages(applications[0].getAttribute("data-app-id"));
+        }
+
+        // 🔹 Переключение сообщений при клике
+        applications.forEach(app => {
+            app.addEventListener("click", function () {
+                const appId = this.getAttribute("data-app-id");
+                showApplicationMessages(appId);
+            });
+        });
+
+        function showApplicationMessages(appId) {
+            console.log("Showing messages for application:", appId);
+
+            // Скрываем все сообщения и резюме
+            document.querySelectorAll(".message, .resume-card").forEach(el => {
+                el.style.display = "none";
+            });
+
+            // Показываем сообщения для выбранной заявки
+            document.querySelectorAll(`.message[data-app-id="${appId}"], .resume-card[data-app-id="${appId}"]`).forEach(el => {
+                el.style.display = "block";
+            });
+
+            // Показываем кнопки действий для работодателя
+            const actionButtons = document.querySelector(".message-actions");
+            if (actionButtons) {
+                actionButtons.style.display = "block";
+                // Обновляем data-app-id для кнопок
+                document.querySelectorAll(".invite-btn, .reject-btn").forEach(btn => {
+                    btn.setAttribute("data-app-id", appId);
+                });
+            }
+        }
+
+        // 🔹 Изменение статуса отклика
+         document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('invite-btn') || e.target.classList.contains('reject-btn')) {
+            const appId = e.target.getAttribute('data-app-id');
+            const newStatus = e.target.classList.contains('invite-btn') ? 'INVITED' : 'REJECTED';
+
+            console.log(`Changing status for application ${appId} to ${newStatus}`);
+
+            fetch(`/notifications/update-status/${appId}/${newStatus}`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                location.reload(); // Перезагружаем страницу после успешного обновления
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при обновлении статуса');
+            });
+        }
+    });
+    });
+</script>
 </body>
 </html>

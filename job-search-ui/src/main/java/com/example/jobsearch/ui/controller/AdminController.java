@@ -1,12 +1,10 @@
 package com.example.jobsearch.ui.controller;
 
+import com.example.jobsearch.bll.service.ApplicationService;
 import com.example.jobsearch.bll.service.CandidateService;
 import com.example.jobsearch.bll.service.EmployerService;
 import com.example.jobsearch.bll.service.UserService;
-import com.example.jobsearch.dal.entity.Candidate;
-import com.example.jobsearch.dal.entity.Employer;
-import com.example.jobsearch.dal.entity.User;
-import com.example.jobsearch.dal.entity.UsersStatus;
+import com.example.jobsearch.dal.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -28,6 +26,8 @@ public class AdminController {
     EmployerService employerService;
     @Autowired
     CandidateService candidateService;
+    @Autowired
+    ApplicationService applicationService;
     @GetMapping("/users")
     public String getUsersPage(Principal principal, Model model) {
         User user = userService.findByUsername(principal.getName());
@@ -42,11 +42,5 @@ public class AdminController {
     public ResponseEntity<String> blockUser(@PathVariable Long id) {
         userService.changeStatus(id, UsersStatus.BLOCKED);
         return ResponseEntity.ok("Пользователь заблокирован!");
-    }
-
-    @PostMapping("/unblock/{id}")
-    public ResponseEntity<String> unblockUser(@PathVariable Long id) {
-        userService.changeStatus(id, UsersStatus.ACTIVE);
-        return ResponseEntity.ok("Пользователь разблокирован!");
     }
 }
